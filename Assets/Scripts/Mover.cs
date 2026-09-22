@@ -4,18 +4,27 @@ public class Mover : MonoBehaviour
 {
     [SerializeField]float moveSpeed = 10f;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.Translate(-18.81f,1f,0.5f);
+        transform.Translate(0f,0f,-2f);
+        startMsg();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float xValue=Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-        float yValue=0f;
-        float zValue=Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-       transform.Translate(xValue,yValue,zValue); 
+       movePlayer();
+    }
+    void movePlayer()
+    {
+        float xValue = Input.GetAxis("Horizontal")*Time.deltaTime*moveSpeed;
+        float yValue = 0f;
+        float zValue = Input.GetAxis("Vertical")*Time.deltaTime*moveSpeed;
+        transform.Translate(xValue,yValue,zValue);
+    }
+    void startMsg()
+    {
+        Debug.Log("Welcome To Obstacle-Dodge");
+        Debug.Log("Avoid Wall And Obstalce");
     }
 }
