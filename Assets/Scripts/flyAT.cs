@@ -3,9 +3,13 @@ using UnityEngine;
 public class flyAT : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created47
-   [SerializeField] float speed=5f;
+   float speed=30f;
    [SerializeField] Transform Player;
    Vector3 playerPosition;
+   void Awake()
+    {
+        gameObject.SetActive(false);
+    }
     void Start()
     {
         playerPosition=Player.transform.position;
